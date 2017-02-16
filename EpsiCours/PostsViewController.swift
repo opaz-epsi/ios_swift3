@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 
 class PostsViewController: UIViewController, DisplayingPostsFromService {
     @IBOutlet var displayingModels : PostsCollectionView!
