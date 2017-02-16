@@ -10,6 +10,10 @@ import UIKit
 
 class PostCell : UICollectionViewCell {
     @IBOutlet var titleLabel: UILabel!
+    
+    func setup(post: PostInList) {
+        titleLabel.text = post.header
+    }
 }
 
 class PostsCollectionView: UICollectionView, UICollectionViewDataSource, DisplayingPosts {
@@ -30,8 +34,8 @@ class PostsCollectionView: UICollectionView, UICollectionViewDataSource, Display
         
         let postCell = self.dequeueReusableCell(withReuseIdentifier: "PostCell", for: indexPath) as! PostCell
         
-        let post = posts[indexPath.item]
-        postCell.titleLabel.text = post.header
+        let post = posts[indexPath.item]        
+        postCell.setup(post: post)
         
         return postCell
     }
