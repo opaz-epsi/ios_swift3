@@ -9,6 +9,8 @@
 import UIKit
 
 class PostCell : UICollectionViewCell {
+    static let identifier = "PostCell"
+    
     @IBOutlet var titleLabel: UILabel!
     
     func setup(post: PostInList) {
@@ -19,9 +21,12 @@ class PostCell : UICollectionViewCell {
 class PostsCollectionView: UICollectionView, UICollectionViewDataSource, DisplayingPosts {
     var posts = [PostInList]()
     
-    func setup(viewModels: [PostInList]) {
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
         self.dataSource = self
-        
+    }
+    
+    func setup(viewModels: [PostInList]) {
         self.posts = viewModels
         reloadData()
     }
@@ -32,11 +37,14 @@ class PostsCollectionView: UICollectionView, UICollectionViewDataSource, Display
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let postCell = self.dequeueReusableCell(withReuseIdentifier: "PostCell", for: indexPath) as! PostCell
-        
+        let postCell = dequeuePostCell(for: indexPath)
         let post = posts[indexPath.item]        
         postCell.setup(post: post)
         
         return postCell
+    }
+    
+    func dequeuePostCell(for indexPath: IndexPath) -> PostCell {
+        return self.dequeueReusableCell(withReuseIdentifier: PostCell.identifier, for: indexPath) as! PostCell
     }
 }
