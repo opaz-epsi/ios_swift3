@@ -8,6 +8,14 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
+
+extension Post {
+    init(data: JSON) {
+        title = data["title"].stringValue
+        body = data["body"].stringValue
+    }
+}
 
 class PostsFromREST : LoadingPosts {
     func load(completion:@escaping ([Post])->Void) {
@@ -15,16 +23,9 @@ class PostsFromREST : LoadingPosts {
         Alamofire.request("https://jsonplaceholder.typicode.com/posts/").responseJSON { response in
             var posts = [Post]()
             
-            if let JSON = response.result.value as? [AnyObject] {
-                for postJSON in JSON {
-                    let postDictionary = postJSON as! [String: AnyObject]
-                    let title = postDictionary["title"] as! String
-                    let body = postDictionary["body"] as! String
-                    
-                    let post = Post(title: title, body: body)
-                    
-                    posts.append(post)
-                }
+            if let JSONData = response.result.value as? [AnyObject] {
+                let postsData = JSON(JSONData)
+                posts = postsData.arrayValue.map { Post(data: $0) }
             }
             completion(posts)
         }
