@@ -169,9 +169,10 @@
 		E671F3861E550D270019EDEE /* Posts */ = {
 			isa = PBXGroup;
 			children = (
-				E671F39F1E559AF50019EDEE /* Controllers */,
+				E671F3AD1E55C3AC0019EDEE /* Behaviors */,
 				E671F3981E55993D0019EDEE /* Load */,
 				E671F3951E5598DA0019EDEE /* Display */,
+				E671F39F1E559AF50019EDEE /* Controllers */,
 				E671F38D1E550D830019EDEE /* Post.swift */,
 			);
 			name = Posts;
@@ -180,8 +181,8 @@
 		E671F3951E5598DA0019EDEE /* Display */ = {
 			isa = PBXGroup;
 			children = (
-				E671F3891E550D4A0019EDEE /* DisplayingPosts.swift */,
-				E671F39B1E5599CF0019EDEE /* List */,
+				E671F39C1E5599EF0019EDEE /* PostInList.swift */,
+				E671F3961E5598F30019EDEE /* PostsCollectionView.swift */,
 			);
 			name = Display;
 			sourceTree = "<group>";
@@ -189,33 +190,14 @@
 		E671F3981E55993D0019EDEE /* Load */ = {
 			isa = PBXGroup;
 			children = (
-				E671F3871E550D410019EDEE /* LoadingPosts.swift */,
-				E671F39E1E559ACF0019EDEE /* List */,
-			);
-			name = Load;
-			sourceTree = "<group>";
-		};
-		E671F39B1E5599CF0019EDEE /* List */ = {
-			isa = PBXGroup;
-			children = (
-				E671F3961E5598F30019EDEE /* PostsCollectionView.swift */,
-				E671F39C1E5599EF0019EDEE /* PostInList.swift */,
-			);
-			name = List;
-			sourceTree = "<group>";
-		};
-		E671F39E1E559ACF0019EDEE /* List */ = {
-			isa = PBXGroup;
-			children = (
 				E671F3991E5599780019EDEE /* PostsFromREST.swift */,
 			);
-			name = List;
+			name = Load;
 			sourceTree = "<group>";
 		};
 		E671F39F1E559AF50019EDEE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E671F38B1E550D580019EDEE /* DisplayingLoadedPosts.swift */,
 				E62DD14E1E447C3F00EC1C5C /* PostsViewController.swift */,
 			);
 			name = Controllers;
@@ -249,6 +231,16 @@
 				E671F3931E5598540019EDEE /* DisplayingPostsFromService.swift */,
 			);
 			name = Setup;
+			sourceTree = "<group>";
+		};
+		E671F3AD1E55C3AC0019EDEE /* Behaviors */ = {
+			isa = PBXGroup;
+			children = (
+				E671F3871E550D410019EDEE /* LoadingPosts.swift */,
+				E671F3891E550D4A0019EDEE /* DisplayingPosts.swift */,
+				E671F38B1E550D580019EDEE /* DisplayingLoadedPosts.swift */,
+			);
+			name = Behaviors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
