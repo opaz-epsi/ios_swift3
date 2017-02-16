@@ -1,0 +1,6 @@
+framework module Pods_EpsiCoursTests {
+  umbrella header "Pods-EpsiCoursTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
