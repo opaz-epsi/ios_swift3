@@ -7,6 +7,7 @@ target 'EpsiCours' do
 
   # Pods for EpsiCours
   pod 'Alamofire', '~> 4.3'
+  pod 'SwiftyJSON', '~> 3.1'
 
   target 'EpsiCoursTests' do
     inherit! :search_paths
